@@ -1,0 +1,28 @@
+const { composePlugins, withNx } = require('@nx/next')
+const { withPayload } = require('@payloadcms/next/withPayload')
+const path = require('path')
+
+/**
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
+ **/
+const nextConfig = {
+  nx: {
+    svgr: false,
+  },
+  outputFileTracingIncludes: {
+    '/api/*': ['./src/**/*'],
+  },
+  webpack: (config) => {
+    // Belt-and-suspenders alongside the tsconfig "paths" entry — this
+    // doesn't depend on how Next resolves tsconfig baseUrl in this
+    // Nx layout, so it can't silently break the same way again.
+    config.resolve.alias['@payload-config'] = path.resolve(__dirname, 'src/payload.config.ts')
+    return config
+  },
+}
+
+const plugins = [withNx]
+
+module.exports = withPayload(composePlugins(...plugins)(nextConfig), {
+  devBundleServerPackages: false,
+})

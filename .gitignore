@@ -1,0 +1,9 @@
+node_modules
+.next
+dist
+.nx/cache
+.nx/workspace-data
+out
+.env*
+!.env.example
+.DS_Store
