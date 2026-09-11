@@ -7,10 +7,6 @@ export const Articles: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'status', 'author', 'client', 'updatedAt'],
   },
-  // Draft/publish workflow + full revision history. This is the piece
-  // that keeps this scalable: editors can work a doc through review
-  // without it going live, and every AI-assisted edit pass is a
-  // recoverable version instead of an overwrite.
   versions: {
     drafts: {
       autosave: { interval: 2000 },
@@ -64,16 +60,8 @@ export const Articles: CollectionConfig = {
       hasMany: false,
       admin: { position: 'sidebar' },
     },
-    {
-      name: 'categories',
-      type: 'relationship',
-      relationTo: 'categories',
-      hasMany: true,
-    },
-    {
-      name: 'abstract',
-      type: 'textarea',
-    },
+    { name: 'categories', type: 'relationship', relationTo: 'categories', hasMany: true },
+    { name: 'abstract', type: 'textarea' },
     {
       name: 'originalText',
       type: 'richText',
@@ -85,9 +73,6 @@ export const Articles: CollectionConfig = {
       admin: { description: 'Latest AI-agent-edited version' },
     },
     {
-      // Stores a pointer + metadata from the Hugging Face editing agent
-      // rather than the raw model I/O, so this collection doesn't bloat
-      // as usage grows — the heavy payloads live on the HF side.
       name: 'aiEditLog',
       type: 'array',
       admin: { description: 'History of AI editing-agent passes on this article' },
@@ -98,11 +83,7 @@ export const Articles: CollectionConfig = {
         { name: 'huggingFaceRunId', type: 'text' },
       ],
     },
-    {
-      name: 'coverImage',
-      type: 'upload',
-      relationTo: 'media',
-    },
+    { name: 'coverImage', type: 'upload', relationTo: 'media' },
     {
       name: 'publishedDate',
       type: 'date',
