@@ -3,9 +3,7 @@ import { isAdminOrEditor } from '../access/roles'
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  admin: {
-    useAsTitle: 'filename',
-  },
+  admin: { useAsTitle: 'filename' },
   access: {
     read: () => true,
     create: isAdminOrEditor,
@@ -13,15 +11,7 @@ export const Media: CollectionConfig = {
     delete: isAdminOrEditor,
   },
   upload: {
-    // No local `staticDir` — storage is delegated to the
-    // @payloadcms/storage-vercel-blob plugin (see plugins.ts), because
-    // Vercel's serverless filesystem is ephemeral/read-only.
     mimeTypes: ['image/*', 'application/pdf'],
   },
-  fields: [
-    {
-      name: 'alt',
-      type: 'text',
-    },
-  ],
+  fields: [{ name: 'alt', type: 'text' }],
 }
