@@ -33,6 +33,7 @@
     "react-dom": "^19.0.0",
     "recharts": "^2.12.7",
     "payload": "^3.30.0",
+    "graphql": "^16.8.1",
     "@payloadcms/db-postgres": "^3.30.0",
     "@payloadcms/next": "^3.30.0",
     "@payloadcms/richtext-lexical": "^3.30.0",
