@@ -14,19 +14,8 @@ export const Reviews: CollectionConfig = {
     delete: isAdminOrEditor,
   },
   fields: [
-    {
-      name: 'article',
-      type: 'relationship',
-      relationTo: 'articles',
-      required: true,
-      index: true,
-    },
-    {
-      name: 'reviewer',
-      type: 'relationship',
-      relationTo: 'users',
-      required: true,
-    },
+    { name: 'article', type: 'relationship', relationTo: 'articles', required: true, index: true },
+    { name: 'reviewer', type: 'relationship', relationTo: 'users', required: true },
     {
       name: 'verdict',
       type: 'select',
@@ -37,9 +26,6 @@ export const Reviews: CollectionConfig = {
         { label: 'Reject', value: 'reject' },
       ],
     },
-    {
-      name: 'comments',
-      type: 'richText',
-    },
+    { name: 'comments', type: 'richText' },
   ],
 }
