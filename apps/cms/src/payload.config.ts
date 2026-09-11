@@ -39,7 +39,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
       ssl: { rejectUnauthorized: false },
     },
-    push: true,
+    push: false,
   }),
 
   cors: [process.env.NEXT_PUBLIC_SERVER_URL || ''].filter(Boolean),
