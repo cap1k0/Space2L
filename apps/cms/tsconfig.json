@@ -7,33 +7,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "types": [
-      "node"
-    ],
+    "plugins": [{ "name": "next" }],
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@payload-config": [
-        "./src/payload.config.ts"
-      ]
-    },
-    "noEmit": true
+      "@payload-config": ["./src/payload.config.ts"]
+    }
   },
   "include": [
-    "**/*.js",
-    "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
     "../../apps/cms/.next/types/**/*.ts",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
+    "next-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "jest.config.ts"
-  ]
+  "exclude": ["node_modules", "jest.config.ts"]
 }
