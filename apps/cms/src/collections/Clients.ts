@@ -1,10 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { isAdminOrEditor } from '../access/roles'
 
-// The CRM side: people/institutions submitting articles for AI-assisted
-// editing. Kept separate from Users (internal team) and Authors
-// (byline identity) so a single person submitting under an
-// institutional account still maps cleanly.
 export const Clients: CollectionConfig = {
   slug: 'clients',
   admin: {
@@ -31,14 +27,14 @@ export const Clients: CollectionConfig = {
         { label: 'Active', value: 'active' },
         { label: 'Past client', value: 'past' },
       ],
-      index: true, // filtering the CRM pipeline by status is the most common query
+      index: true,
     },
     {
       name: 'articles',
       type: 'relationship',
       relationTo: 'articles',
       hasMany: true,
-      admin: { readOnly: true }, // populated implicitly via Article.client
+      admin: { readOnly: true },
     },
     {
       name: 'notes',
