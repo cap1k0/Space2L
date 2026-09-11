@@ -13,9 +13,6 @@ const nextConfig = {
     '/api/*': ['./src/**/*'],
   },
   webpack: (config) => {
-    // Belt-and-suspenders alongside the tsconfig "paths" entry — this
-    // doesn't depend on how Next resolves tsconfig baseUrl in this
-    // Nx layout, so it can't silently break the same way again.
     config.resolve.alias['@payload-config'] = path.resolve(__dirname, 'src/payload.config.ts')
     return config
   },
