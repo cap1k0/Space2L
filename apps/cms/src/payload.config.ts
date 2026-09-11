@@ -17,7 +17,6 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  // Admin panel settings
   admin: {
     user: Users.slug,
     meta: {
@@ -25,9 +24,6 @@ export default buildConfig({
     },
   },
 
-  // All collections live here. Add new ones to this array only —
-  // everything else (access, hooks, fields) stays inside its own file
-  // so the config itself never becomes the bottleneck as you scale.
   collections: [Users, Authors, Articles, Categories, Reviews, Clients, Media],
 
   editor: lexicalEditor({}),
@@ -38,19 +34,14 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
 
-  // Postgres via Supabase. Use the Session Pooler connection string
-  // (port 6543) — required for serverless/edge environments like Vercel
-  // where connections are short-lived and can spike in count.
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
+      ssl: { rejectUnauthorized: false },
     },
-    // Keep migrations explicit once you have real data — avoid
-    // `push: true` in any environment beyond local dev.
-    push: process.env.NODE_ENV !== 'production',
+    push: true,
   }),
 
-  // CORS / CSRF — tighten this to your real domains before going live
   cors: [process.env.NEXT_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.NEXT_PUBLIC_SERVER_URL || ''].filter(Boolean),
 
