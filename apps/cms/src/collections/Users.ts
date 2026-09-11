@@ -4,7 +4,7 @@ import { isAdmin, adminFieldOnly } from '../access/roles'
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: {
-    tokenExpiration: 60 * 60 * 24 * 7,
+    tokenExpiration: 60 * 60 * 24 * 7, // 7 days
   },
   admin: {
     useAsTitle: 'email',
@@ -22,7 +22,7 @@ export const Users: CollectionConfig = {
       name: 'role',
       type: 'select',
       required: true,
-      defaultValue: 'author',
+      defaultValue: 'admin',
       options: [
         { label: 'Admin', value: 'admin' },
         { label: 'Editor', value: 'editor' },
