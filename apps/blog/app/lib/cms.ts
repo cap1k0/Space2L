@@ -29,27 +29,24 @@ type ListResponse = {
   docs: Article[]
 }
 
-// `next: { revalidate }` is what keeps blog decoupled from cms uptime:
-// pages are built once and served from Vercel's cache, only
-// re-fetching in the background on the given interval. If cms.bruca.space
-// is down when a revalidation fires, Next.js keeps serving the last
-// good version instead of failing the request.
 const REVALIDATE_SECONDS = 300
 
 export async function getPublishedArticles(): Promise<Article[]> {
   try {
-    const res = await fetch(
-      `${CMS_URL}/api/articles?where[status][equals]=published&depth=2&limit=100&sort=-publishedDate`,
-      { next: { revalidate: REVALIDATE_SECONDS } },
-    )
+    const url = `${CMS_URL}/api/articles?where[workflowStatus][equals]=published&depth=2&limit=100&sort=-publishedDate`
+    console.log('[blog] fetching articles from', url)
+    const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } })
 
-    if (!res.ok) return []
+    if (!res.ok) {
+      console.error('[blog] articles fetch not ok:', res.status, await res.text())
+      return []
+    }
 
     const data = (await res.json()) as ListResponse
+    console.log('[blog] got', data.docs?.length ?? 0, 'articles')
     return data.docs
-  } catch {
-    // Network-level failure (cms unreachable, DNS, timeout) — fail soft
-    // instead of taking the whole blog build down with it.
+  } catch (err) {
+    console.error('[blog] articles fetch threw:', err)
     return []
   }
 }
@@ -57,7 +54,7 @@ export async function getPublishedArticles(): Promise<Article[]> {
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
   try {
     const res = await fetch(
-      `${CMS_URL}/api/articles?where[slug][equals]=${encodeURIComponent(slug)}&where[status][equals]=published&depth=2&limit=1`,
+      `${CMS_URL}/api/articles?where[slug][equals]=${encodeURIComponent(slug)}&where[workflowStatus][equals]=published&depth=2&limit=1`,
       { next: { revalidate: REVALIDATE_SECONDS } },
     )
 
