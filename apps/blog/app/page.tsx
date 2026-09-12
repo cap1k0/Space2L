@@ -43,7 +43,7 @@ export default async function BlogIndex() {
           <a href="https://bruca.space">
             <Logo />
           </a>
-          
+          <a
             href="https://bruca.space"
             className="text-sm text-neutral-600 hover:text-neutral-900"
           >
