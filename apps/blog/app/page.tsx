@@ -47,7 +47,7 @@ export default async function BlogIndex() {
             href="https://bruca.space"
             className="text-sm text-neutral-600 hover:text-neutral-900"
           >
-            bruca.space →
+            bruca.space &rarr;
           </a>
         </nav>
 
