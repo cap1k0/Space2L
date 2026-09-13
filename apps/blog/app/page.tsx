@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Logo from "./components/Logo";
 import { getPublishedArticles } from "./lib/cms";
-
 export const revalidate = 300;
 
 async function debugFetch() {
