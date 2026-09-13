@@ -3,7 +3,6 @@ import Logo from "./components/Logo";
 import { getPublishedArticles } from "./lib/cms";
 export const revalidate = 300;
 
-
 async function debugFetch() {
   const cmsUrl = process.env.NEXT_PUBLIC_CMS_URL || "https://cms.bruca.space";
   const params = new URLSearchParams();
