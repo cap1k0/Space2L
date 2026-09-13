@@ -34,11 +34,13 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
 
-  db: postgresAdapter({
-     pool: {
+    db: postgresAdapter({
+    pool: {
       connectionString: process.env.DATABASE_URI || '',
       ssl: { rejectUnauthorized: false },
-      max: 1,
+      max: 3,
+      connectionTimeoutMillis: 8000,
+      idleTimeoutMillis: 10000,
     },
     push: false,
   }),
