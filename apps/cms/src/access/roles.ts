@@ -26,7 +26,7 @@ export const isLoggedIn: Access = ({ req: { user } }) => Boolean(user)
 export const publishedOnlyOrLoggedIn: Access = ({ req: { user } }) => {
   if (user) return true
   return {
-    status: {
+    workflowStatus: {
       equals: 'published',
     },
   }
