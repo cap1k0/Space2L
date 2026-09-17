@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getPublishedArticles } from "./lib/cms";
 
+export const revalidate = 300;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blog.bruca.space";
   const articles = await getPublishedArticles();
