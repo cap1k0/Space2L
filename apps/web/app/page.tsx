@@ -23,7 +23,7 @@ export default function Home() {
             </a>
 
             <a href="/docs" className="hover:text-neutral-900">
-              Article
+              Docs
             </a>
 
             <a
@@ -96,14 +96,12 @@ export default function Home() {
           </h2>
 
           <p className="mb-4 max-w-2xl text-sm leading-relaxed text-neutral-600">
-            Where we train and evaluate the models behind Bruca, while also
-            developing additional models that can support our ongoing research
-            and help us better understand how professional and AI-generated
-            edits differ in scholarly publications, as well as how academic
-            writers actually engage with AI-assisted language editing.
-            Beyond Bruca, our team is developing models designed to support
-            students and researchers as intelligent assistants throughout
-            their academic work.
+           Where we develop and evaluate specialized AI models and datasets,
+            while exploring the intersection of artificial intelligence and blockchain technology.
+            Our work focuses on building proprietary models, developing high-quality datasets, 
+            and investigating new ways AI systems can interact with decentralized technologies.
+            Beyond our core research, we are also developing practical AI models and infrastructure designed to support researchers,
+            students, and organizations through intelligent, data-driven tools.
           </p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
