@@ -56,7 +56,7 @@ export default async function BlogIndex() {
             Blog
           </h1>
           <p className="text-base text-neutral-600">
-            Notes on AI-assisted language editing for academic writing.
+            Notes on AI-Blockchain 
           </p>
         </header>
 
