@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import Logo from "./components/Logo";
 import CookieBanner from "./components/CookieBanner";
@@ -86,70 +85,6 @@ export default function Home() {
             </a>
           </div>
         </section>
-
-        {/* Product preview */}
-        <div className="relative mb-8">
-          <div
-            aria-hidden="true"
-            className="absolute -inset-1 rounded-xl bg-gradient-to-r from-blue-200 via-blue-100 to-transparent opacity-50 blur-lg"
-          />
-
-          <section
-            id="product"
-            className="relative overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm"
-          >
-            {/* Window chrome */}
-            <div className="flex items-center justify-between border-b border-neutral-200 bg-neutral-50 px-4 py-3">
-              <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-300" />
-
-                <span className="ml-3 text-xs text-neutral-500">
-                  draft.docx
-                </span>
-              </div>
-
-              <span className="flex items-center gap-1.5 rounded-full bg-blue-100 px-2.5 py-1 text-xs font-medium text-blue-800">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-600" />
-                AI editing
-              </span>
-            </div>
-
-            <div className="p-6">
-              <p className="text-base leading-relaxed">
-                The results{" "}
-                <span className="rounded bg-red-50 px-1 text-red-700 line-through decoration-red-300">
-                  indicate that
-                </span>{" "}
-                <span className="rounded bg-green-50 px-1 text-green-700">
-                  suggest
-                </span>{" "}
-                a significant correlation between the two variables, which{" "}
-                <span className="rounded bg-red-50 px-1 text-red-700 line-through decoration-red-300">
-                  was not expected by us
-                </span>{" "}
-                <span className="rounded bg-green-50 px-1 text-green-700">
-                  we did not anticipate
-                </span>
-                .
-              </p>
-            </div>
-
-            <div className="flex items-center justify-between border-t border-neutral-200 bg-neutral-50 px-4 py-2.5 text-xs text-neutral-500">
-              <span>Real edit from Bruca's editing agent</span>
-
-              <a
-                href="https://ai.bruca.space/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-blue-700 hover:text-blue-900"
-              >
-                Try it yourself →
-              </a>
-            </div>
-          </section>
-        </div>
 
         {/* Model development space */}
         <section
@@ -241,4 +176,3 @@ export default function Home() {
     </main>
   );
 }
-
