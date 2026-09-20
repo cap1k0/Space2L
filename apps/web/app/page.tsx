@@ -1,4 +1,4 @@
-```tsx
+
 import Link from "next/link";
 import Logo from "./components/Logo";
 import CookieBanner from "./components/CookieBanner";
@@ -240,4 +240,4 @@ export default function Home() {
     </main>
   );
 }
-```
+
