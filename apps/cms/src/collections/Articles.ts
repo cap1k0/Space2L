@@ -15,13 +15,8 @@ export const Articles: CollectionConfig = {
     ],
   },
 
-  // Payload Draft/Publish + revision history
+  // Revision history only — NOT Payload's draft/publish system.
   versions: {
-    drafts: {
-      autosave: {
-        interval: 2000,
-      },
-    },
     maxPerDoc: 50,
   },
 
@@ -50,9 +45,6 @@ export const Articles: CollectionConfig = {
       },
     },
 
-    // IMPORTANT:
-    // This is Bruca's own workflow status.
-    // Payload's Draft/Publish system uses its own internal `_status` field.
     {
       name: 'workflowStatus',
       type: 'select',
@@ -65,30 +57,12 @@ export const Articles: CollectionConfig = {
       },
 
       options: [
-        {
-          label: 'Submitted',
-          value: 'submitted',
-        },
-        {
-          label: 'In AI editing',
-          value: 'ai_editing',
-        },
-        {
-          label: 'In human review',
-          value: 'in_review',
-        },
-        {
-          label: 'Changes requested',
-          value: 'changes_requested',
-        },
-        {
-          label: 'Approved',
-          value: 'approved',
-        },
-        {
-          label: 'Published',
-          value: 'published',
-        },
+        { label: 'Submitted', value: 'submitted' },
+        { label: 'In AI editing', value: 'ai_editing' },
+        { label: 'In human review', value: 'in_review' },
+        { label: 'Changes requested', value: 'changes_requested' },
+        { label: 'Approved', value: 'approved' },
+        { label: 'Published', value: 'published' },
       ],
     },
 
@@ -145,8 +119,6 @@ export const Articles: CollectionConfig = {
     },
 
     {
-      // Stores metadata from the Hugging Face editing agent.
-      // The heavy model payload remains outside Payload.
       name: 'aiEditLog',
       type: 'array',
 
