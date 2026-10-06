@@ -26,8 +26,8 @@ export default buildConfig({
     },
   },
 
-  collections: [Users, Authors, Articles, Categories, Reviews, Clients, Media],
-
+collections: [Users, Authors, Articles, Categories, Reviews, Clients, DemoRequests, Media],
+  
   editor: lexicalEditor({}),
 
   secret: process.env.PAYLOAD_SECRET || '',
