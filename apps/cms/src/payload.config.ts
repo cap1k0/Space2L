@@ -4,7 +4,7 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { buildConfig } from 'payload'
 import path from 'path'
 import { fileURLToPath } from 'url'
-
+import { DemoRequests } from './collections/DemoRequests'
 
 
 import { Users } from './collections/Users'
